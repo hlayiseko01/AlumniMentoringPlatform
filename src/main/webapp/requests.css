@@ -1,0 +1,231 @@
+/* Requests Page Styles */
+
+.filters { 
+    display: flex; 
+    gap: 1rem; 
+    margin: 1.5rem 0; 
+    flex-wrap: wrap;
+}
+
+.filters .input,
+.filters select {
+    flex: 1;
+    min-width: 200px;
+}
+
+.list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1rem; 
+    margin-top: 1rem;
+}
+
+.req { 
+    background: var(--bg-primary); 
+    border: 1px solid var(--border); 
+    border-radius: var(--radius-lg); 
+    padding: 1.5rem; 
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.req:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.req .head { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.req .head > div {
+    flex: 1;
+}
+
+.req .h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.req .p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 0.25rem;
+}
+
+.badge { 
+    padding: 0.375rem 0.75rem; 
+    border-radius: 999px; 
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.badge.PENDING { 
+    background: #fff7ed; 
+    color: #9a3412; 
+    border: 1px solid #fed7aa; 
+}
+
+.badge.ACCEPTED { 
+    background: #ecfdf5; 
+    color: #065f46; 
+    border: 1px solid #a7f3d0; 
+}
+
+.badge.REJECTED { 
+    background: #fef2f2; 
+    color: #991b1b; 
+    border: 1px solid #fecaca; 
+}
+
+.actions { 
+    display: flex; 
+    gap: 0.75rem; 
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.actions .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius);
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.actions .btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    box-shadow: var(--shadow);
+}
+
+.actions .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+}
+
+.actions .btn-danger {
+    background: var(--error);
+    color: white;
+    box-shadow: var(--shadow);
+}
+
+.actions .btn-danger:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+}
+
+.actions .btn-secondary {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+.actions .btn-secondary:hover {
+    background: var(--border);
+    transform: translateY(-1px);
+}
+
+.text-muted {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.text-muted::before {
+    content: '⏳';
+    font-size: 1rem;
+}
+
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    color: var(--text-muted);
+}
+
+.loading-state i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+.empty-state h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.empty-state p {
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .filters .input,
+    .filters select {
+        min-width: auto;
+    }
+    
+    .req .head {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .badge {
+        align-self: flex-start;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+    
+    .actions .btn {
+        justify-content: center;
+    }
+}

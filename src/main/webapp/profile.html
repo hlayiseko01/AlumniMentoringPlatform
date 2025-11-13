@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile - Alumni Mentoring</title>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="profile.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Session-based authentication - server handles redirects -->
+  <script defer src="js/api.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="profile.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Alumni Mentoring</span>
+      </div>
+      <nav class="nav">
+        <a href="dashboard.html" class="nav-link">
+          <i class="fas fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="alumni.html" class="nav-link">
+          <i class="fas fa-search"></i>
+          <span>Find Mentor</span>
+        </a>
+        <a href="requests.html" class="nav-link">
+          <i class="fas fa-handshake"></i>
+          <span>Mentorship Request</span>
+        </a>
+        <a href="chat.html" class="nav-link">
+          <i class="fas fa-comments"></i>
+          <span>Chat</span>
+        </a>
+        <a href="profile.html" class="nav-link active">
+          <i class="fas fa-user"></i>
+          <span>Profile</span>
+        </a>
+        <a href="#" onclick="Auth.logout()" class="nav-link logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="max-width:760px;">
+    <div class="h1">Profile</div>
+    <div class="card">
+      <div id="profileForm">
+        <!-- Common fields -->
+        <div class="row">
+          <div>
+            <label>Full Name *</label>
+            <input id="fullName" class="input" required />
+          </div>
+          <div>
+            <label>Email</label>
+            <input id="email" class="input" disabled />
+          </div>
+        </div>
+
+        <!-- Student-specific fields -->
+        <div id="studentFields" style="display: none;">
+          <div class="row">
+            <div>
+              <label>Enrollment Year</label>
+              <input id="enrollmentYear" type="number" class="input" min="2000" max="2030" />
+            </div>
+            <div>
+              <label>Major</label>
+              <input id="major" class="input" placeholder="e.g., Computer Science" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Alumni-specific fields -->
+        <div id="alumniFields" style="display: none;">
+          <div class="row">
+            <div>
+              <label>Graduation Year</label>
+              <input id="graduationYear" type="number" class="input" min="2000" max="2030" />
+            </div>
+            <div>
+              <label>Company</label>
+              <input id="company" class="input" placeholder="e.g., Google" />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label>Position</label>
+              <input id="position" class="input" placeholder="e.g., Software Engineer" />
+            </div>
+            <div>
+              <label>LinkedIn Profile</label>
+              <input id="linkedin" class="input" placeholder="https://linkedin.com/in/username" />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label>Bio</label>
+              <textarea id="bio" class="input" rows="3" placeholder="Tell us about yourself..."></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label>Skills (comma-separated)</label>
+              <input id="skills" class="input" placeholder="e.g., Java, JavaScript, React" />
+            </div>
+            <div>
+              <label>
+                <input id="availableForMentoring" type="checkbox" checked />
+                Available for Mentoring
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <button class="btn btn-primary" id="saveBtn">Save Changes</button>
+          <button class="btn btn-secondary" id="cancelBtn" style="margin-left:10px;">Cancel</button>
+        </div>
+      </div>
+      
+      <div id="successMessage" class="notice success" style="display: none; margin-top: 15px;">
+        Profile updated successfully!
+      </div>
+      <div id="errorMessage" class="notice error" style="display: none; margin-top: 15px;">
+        Failed to update profile. Please try again.
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">© 2025 Alumni Mentoring</footer>
+</body>
+</html>
+
+

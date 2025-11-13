@@ -1,16 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
-    <servlet>
-        <servlet-name>StudentTestServlet</servlet-name>
-        <servlet-class>za.ump.scms.dict312.studentmanagementsystem.StudentTestServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>StudentTestServlet</servlet-name>
-        <url-pattern>/studentTestServlet</url-pattern>
-    </servlet-mapping>
+ <web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+          version="6.0">
+ 
+     <!-- Public endpoints: do NOT require authentication -->
+     <security-constraint>
+         <web-resource-collection>
+             <web-resource-name>Public Auth APIs</web-resource-name>
+             <url-pattern>/resources/auth/*</url-pattern>
+         </web-resource-collection>
+         <!-- No auth-constraint means it's public -->
+     </security-constraint>
+ 
+     <!-- Public static assets and pages -->
+     <security-constraint>
+         <web-resource-collection>
+             <web-resource-name>Public Pages</web-resource-name>
+             <url-pattern>/</url-pattern>
+             <url-pattern>/index.html</url-pattern>
+             <url-pattern>/login.html</url-pattern>
+             <url-pattern>/register.html</url-pattern>
+             <url-pattern>/css/*</url-pattern>
+             <url-pattern>/js/*</url-pattern>
+             <url-pattern>/images/*</url-pattern>
+         </web-resource-collection>
+         <!-- No auth-constraint -> public -->
+     </security-constraint>
+
+    <!-- Session-based authentication - no security constraints needed -->
+    <!-- All pages are accessible, authentication is handled by JavaScript -->
+
+    <!-- API-based authentication - no form config needed -->
+
+    <!-- Session configuration -->
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>30</session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+            <secure>false</secure>
+        </cookie-config>
     </session-config>
+
 </web-app>

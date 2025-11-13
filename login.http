@@ -1,0 +1,12 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###
+POST http://localhost:8080/AlumniMentoring/resources/auth/login
+Content-Type: application/json
+
+{
+  "email": "student1@university.edu",
+  "password": "student123"
+}

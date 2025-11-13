@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Alumni Mentoring</title>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="dashboard.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Session-based authentication - server handles redirects -->
+  <script defer src="js/api.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script defer src="dashboard.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Alumni Mentoring</span>
+      </div>
+      <nav class="nav">
+        <a href="dashboard.html" class="nav-link active">
+          <i class="fas fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="alumni.html" class="nav-link">
+          <i class="fas fa-search"></i>
+          <span>Find Mentor</span>
+        </a>
+        <a href="requests.html" class="nav-link">
+          <i class="fas fa-handshake"></i>
+          <span>Mentorship Request</span>
+        </a>
+        <a href="chat.html" class="nav-link">
+          <i class="fas fa-comments"></i>
+          <span>Chat</span>
+        </a>
+        <a href="profile.html" class="nav-link">
+          <i class="fas fa-user"></i>
+          <span>Profile</span>
+        </a>
+        <a href="#" onclick="Auth.logout()" class="nav-link logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+      <div class="welcome-content">
+        <h1 class="welcome-title">Welcome back!</h1>
+        <p class="welcome-subtitle">Here's your dashboard overview</p>
+        <div class="user-info">
+          <div class="user-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="user-details">
+            <h3>Loading...</h3>
+            <div class="user-role">Loading...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div id="stats" class="stats-grid">
+      <div class="loading">
+        <i class="fas fa-spinner fa-spin"></i>
+        <span>Loading dashboard...</span>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+      <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
+      <div class="actions-grid">
+        <a href="alumni.html" class="action-btn">
+          <i class="fas fa-users"></i>
+          <span>Browse Mentors</span>
+        </a>
+        <a href="requests.html" class="action-btn">
+          <i class="fas fa-handshake"></i>
+          <span>View Requests</span>
+        </a>
+        <a href="chat.html" class="action-btn">
+          <i class="fas fa-comments"></i>
+          <span>Open Chat</span>
+        </a>
+        <a href="profile.html" class="action-btn">
+          <i class="fas fa-user"></i>
+          <span>Edit Profile</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="recent-activity">
+      <h2><i class="fas fa-history"></i> Recent Activity</h2>
+      <div class="activity-list">
+        <div class="activity-item">
+          <div class="activity-icon mentor">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <div class="activity-content">
+            <div class="activity-title">Welcome to Alumni Mentoring</div>
+            <div class="activity-description">Get started by browsing available mentors or creating your first request</div>
+          </div>
+          <div class="activity-time">Just now</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">© 2025 Alumni Mentoring</footer>
+</body>
+</html>
+
+
